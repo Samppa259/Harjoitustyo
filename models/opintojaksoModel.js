@@ -6,8 +6,8 @@ const haeKaikkiJaksot = (callback) => {
 const lisaaJakso = (Jakso, callback) => {  // Funktio tallentaa Jakso muttujaan käyttäjän syötteen ja callback tarkistaa onnistuiko syötteen sijoittaminen tietokantaan.
     const sql = `
         INSERT INTO opintojakso (Koodi, Laajuus, Nimi)
-        VALUES (?, ?, ?)   // Alla olevat arvot sijoitetaan kysymys merkkien paikalle.
-    `;
+        VALUES (?, ?, ?)   `;   // Alla olevat arvot sijoitetaan kysymys merkkien paikalle.
+  
 
     db.query(sql, [
         Jakso.Koodi,
@@ -20,8 +20,7 @@ const paivitaJakso = (id, Jakso, callback) => {  // Funktio tallentaa käyttäj�
     const sql = `
         UPDATE opintojakso
         SET Koodi = ?, Laajuus = ?, Nimi = ? // Alla olevat tiedot tulee kysymys merkkien paikalle.
-        WHERE idOpintojakso = ?
-    `;
+        WHERE idOpintojakso = ? `;
 
     db.query(sql, [
         Jakso.Koodi,

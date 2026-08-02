@@ -22,8 +22,7 @@ const paivitaArviointi = (id, arviointi, callback) => { // Funktio tallentaa kä
     const sql = `
         UPDATE arviointi
         SET Paivamaara = ?, Arvosana = ?, idOpiskelija = ?, idOpintojakso = ? // Alla olevat tiedot tulee kysymys merkkien paikalle.
-        WHERE idArviointi = ?
-    `;
+        WHERE idArviointi = ? `;
 
     db.query(sql, [
         arviointi.Paivamaara,

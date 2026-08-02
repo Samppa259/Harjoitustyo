@@ -5,25 +5,22 @@ const haeKaikkiOpiskelijat = (callback) => { // Funktio ajaa ton koodin tuolla t
 };
 
 const lisaaOpiskelija = (opiskelija, callback) => { // Funktio tallentaa opiskelija muttujaan käyttäjän syötteen ja callback tarkistaa onnistuiko syötteen sijoittaminen tietokantaan.
-    const sql = `
-        INSERT INTO opiskelija (Etunimi, Sukunimi, Osoite, Luokkatunnus)
-        VALUES (?, ?, ?, ?)      // Alla olevat arvot sijoitetaan kysymys merkkien paikalle.
-    `;
+ const sql = "CALL lisaaOpiskelija(?, ?, ?, ?)";  // Tässä käytetään stored procedurea. Alla olevat tiedot tulevat kysymysmerkkien paikalle.
 
-    db.query(sql, [
-        opiskelija.Etunimi,
-        opiskelija.Sukunimi,
-        opiskelija.Osoite,
-        opiskelija.Luokkatunnus
-    ], callback);
+db.query(sql, [
+    opiskelija.Etunimi,
+    opiskelija.Sukunimi,
+    opiskelija.Osoite,
+    opiskelija.Luokkatunnus
+], callback);
+
 };
 
 const paivitaOpiskelija = (id, opiskelija, callback) => { // Funktio tallentaa käyttäjän antaman id:een(id muuttujaan) ja syötteen(opiskelija muuttujaan). Callback tarkistaa että onnistuiko syötteen sijoittaminen tietokantaan.
     const sql = `
         UPDATE opiskelija
         SET Etunimi = ?, Sukunimi = ?, Osoite = ?, Luokkatunnus = ?    // Alla olevat tiedot tulee kysymys merkkien paikalle.
-        WHERE idOpiskelija = ?
-    `;
+        WHERE idOpiskelija = ? `;
 
     db.query(sql, [
         opiskelija.Etunimi,
