@@ -19,8 +19,8 @@ db.query(sql, [
 const paivitaOpiskelija = (id, opiskelija, callback) => { // Funktio tallentaa käyttäjän antaman id:een(id muuttujaan) ja syötteen(opiskelija muuttujaan). Callback tarkistaa että onnistuiko syötteen sijoittaminen tietokantaan.
     const sql = `
         UPDATE opiskelija
-        SET Etunimi = ?, Sukunimi = ?, Osoite = ?, Luokkatunnus = ?    // Alla olevat tiedot tulee kysymys merkkien paikalle.
-        WHERE idOpiskelija = ? `;
+        SET Etunimi = ?, Sukunimi = ?, Osoite = ?, Luokkatunnus = ?   
+        WHERE idOpiskelija = ? `;  // Alla olevat tiedot tulee kysymys merkkien paikalle.
 
     db.query(sql, [
         opiskelija.Etunimi,

@@ -45,8 +45,8 @@ const poista = (req, res) => {
         }
 
         res.json({
-            viesti: "Opiskelija poistettu onnistuneesti!"    // Jos onnistui niin kertoo että onnistui.
-        });
+            viesti: "Opiskelija poistettu onnistuneesti!"  
+        });   // Jos onnistui niin kertoo että onnistui.
     });
 };
 
